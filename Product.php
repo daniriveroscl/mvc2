@@ -1,5 +1,5 @@
 <?php
-    // Fichero que simula el modelo con datos
+    // Fichero que simula el MODELO con datos.
     class Product {
         // constantes en mayúsculas
         const PRODUCTS = [
@@ -12,16 +12,17 @@
     function __construct() {/* constructor vacío */ } 
 
     // Devuelve el array con los productos
+    // static para acceder desde otra clase a esa función.
     public static function all()
     {
         return Product::PRODUCTS; 
     }
 
     // Devuelve un producto en concreto
-    public function fin($id)
+    public static function find($id)
     {
         return Product::PRODUCTS[$id-1]; // -1 ya que los arrays comienzan en 0
     }
 
 
-    }
+    } // Fin de la clase
