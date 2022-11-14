@@ -9,12 +9,13 @@
 <body>
     <h1>Inventario de Productos</h1>
         <table>
-            <?php 
-            foreach ($products as $item) : ?> <!-- :..endforeach es una mejor forma de escribir un foreach -->
+            <?php
+
+            foreach ($products as $item) : ?> <!-- :..endforeach es una mejor forma de cerrar un foreach -->
             <tr>
                 <td><b>Identificador:</b><?= $item[0] ?></td>
                 <td><b>Descripción:</b><?= $item[1] ?></td>
-                <td><a href="?method=show&&id=<?= $item[0] ?>">Ver Detalle</a></td>
+                <td><a href="product/show?id= <?= $item[0] ?>">Ver Detalle</a></td>
             </tr> 
             <?php endforeach; ?>
         </table> 
