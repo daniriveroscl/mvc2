@@ -1,4 +1,5 @@
 <?php
+    namespace Core;
 
     /* - Si la url no especifica ningún controlador(recurso) => asigno uno por defecto (home) 
        - Si la url no especifica ningún método => asigno por defecto index

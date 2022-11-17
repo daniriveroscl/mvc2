@@ -1,5 +1,5 @@
-<footer class="footer">
-      <div class="container">
-        <span class="text-muted">Pie de página.</span>
-      </div>
-    </footer>
+<footer class="footer fixed-bottom bg-dark text-white">
+    <div class="text-center" style="margin: 10px">
+        Mi pie de pagina personalizado
+    </div>
+</footer>

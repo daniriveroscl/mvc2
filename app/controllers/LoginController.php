@@ -1,4 +1,6 @@
 <?php
+    namespace App\Controllers;
+
     class LoginController {
 
         function __construct()

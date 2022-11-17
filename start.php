@@ -9,5 +9,5 @@
 
     require_once "core/App.php";
 
-    $app = new App(); // Crea un objeto de App
+    $app = new \Core\App(); // Crea un objeto de App
 
