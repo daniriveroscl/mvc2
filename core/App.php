@@ -40,7 +40,8 @@
                 die("Error 404.No encontrado"); // Mensaje en la página.
             }
 
-            // Existe el método en el controlador??
+            // Ejecuta el método del controlador solicitado por la url
+            $controllerName = "\\App\\Controllers\\$controllerName";
             $controllerObject = new $controllerName; // Crea un objeto de controllerName
             if (method_exists($controllerObject,$method)) {
                 $controllerObject->$method($arguments); // Si existe, llama al método con sus parámetros(argumentos). 
