@@ -12,7 +12,7 @@
         function index(){ // MÉTODO POR DEFECTO
             //echo "<br>Dentro de index de PRODUCTCONTROLLER";
             $products = \Product::all();
-            require "../app/views/home_product.php";
+            require "../app/views/product.php";
         } // fin index. Método home()
 
         function show(){
