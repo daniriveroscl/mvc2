@@ -10,7 +10,7 @@
 
         function index(){ // MÉTODO POR DEFECTO
             echo "<br>Dentro de index de HOMECONTROLLER";
-            require "../app/views/home.php";
+            //require "../app/views/home.php";
         } // fin index. Método home()
 
         function home(){

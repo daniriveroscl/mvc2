@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Models;
+
     // Fichero que simula el MODELO con datos.
     class Product {
         // constantes en mayúsculas

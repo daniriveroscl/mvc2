@@ -1,4 +1,5 @@
 <?php
+
     // CONTENIDO PRIVADO
     // También llamado ENRUTADOR
     
@@ -7,7 +8,10 @@
         // acción: métodos del controlador. Ej: controlador->show()
         // parámetros:  Ej: find-> id del producto
 
-    require_once "core/App.php";
+   // require_once "core/App.php";
+
+   // autoload de composer. Incluye todas las clases
+    require 'vendor/autoload.php';
 
     $app = new Core\App(); // Crea un objeto de App. Se debe poner la ruta ya que se trata de un namespace
 
