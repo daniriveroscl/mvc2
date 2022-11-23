@@ -8,7 +8,7 @@
         // acción: métodos del controlador. Ej: controlador->show()
         // parámetros:  Ej: find-> id del producto
 
-   // require_once "core/App.php";
+   require_once "core/App.php";
 
    // autoload de composer. Incluye todas las clases
     require 'vendor/autoload.php';
