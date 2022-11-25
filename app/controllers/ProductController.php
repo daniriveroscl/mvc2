@@ -1,5 +1,6 @@
 <?php
     namespace App\Controllers;
+    
     require "../Product.php";
     use App\Models\Product;
 

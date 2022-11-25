@@ -39,4 +39,13 @@
             $statement = $db->prepare("INSERT INTO products(id, name, type_id, price, fechaCompra");
             //$statement->bindValue((":id", $this->id));
         }
+
+        public function delete(){ //TODO 
+
+        }
+
+        public function save(){ //TODO 
+
+        }
+
     }
