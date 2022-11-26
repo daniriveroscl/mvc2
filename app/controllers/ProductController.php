@@ -17,12 +17,16 @@
             //require "../views/product.php";
         } // fin index. Método home()
 
-        function show(){
+        function show($args){
            //echo "<br>Dentro de show de PRODUCTCONTROLLER";
-           $id = $_GET["id"];
+           list($id) = $args;
            $product = Product::find($id);
             //require "../views/show.php";
+            //args es un array, tomamos el id con uno de estos métodos
+            // $id = (int) $args[0];
+           require('../app/views/show_product.php');        
+
         } // fin show. Método show()
 
 
-    }
+    }// Fin de clase

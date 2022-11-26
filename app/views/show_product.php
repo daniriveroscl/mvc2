@@ -15,5 +15,11 @@
         <strong>Descripción</strong>
         <?= $product[1] ?>
     </li>
+
+    <h1>Detalle del usuario <?php echo $product->id ?></h1>
+    <ul>
+        <li><strong>Identificador: </strong><?php echo $product->name ?></li>
+        <li><strong>Descripción: </strong><?php echo $product->surname ?></li>
+    </ul>
 </body>
 </html>
