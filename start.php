@@ -1,14 +1,6 @@
 <?php
-    // CONTENIDO PRIVADO
-    // También llamado ENRUTADOR
-    
-    // /recurso/acción/parámetro
-        // recurso: controladores
-        // acción: métodos del controlador. Ej: controlador->show()
-        // parámetros:  Ej: find-> id del producto
+require 'vendor/autoload.php';
 
-    //Importamos el creador de controladores generico
-    require_once "core/App.php";
-
-    $app = new \Core\App(); // Crea un objeto de App para acceder a los métodos.
-
+//echo "Inicio<br>";
+session_start();
+$app = new \Core\App();

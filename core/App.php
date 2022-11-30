@@ -1,59 +1,48 @@
 <?php
-    namespace Core;
+namespace Core;
 
-    /* - Si la url no especifica ningún controlador(recurso) => asigno uno por defecto (home) 
-       - Si la url no especifica ningún método => asigno por defecto index
+class App
+{
 
-       /recurso/accion/parámetros
-    */
-
-    class App  
+    function __construct()
     {
-        function __construct()
-        {
-            if (isset($_GET["url"]) && !empty($_GET["url"])) {
-                $url = $_GET["url"];
-            }else {
-                $url = "home";
-            }
-            // url:/recurso/accion/parámetros
+        // echo "Clase App<br>";
 
-            // url:/product/show/5 -> product:recurso ; show:acción ; 5:parámetro
-            $arguments = explode('/', trim($url,'/')); // Trocea la url(cadena) en palabras
-            $controllerName = array_shift(($arguments)); // product. Extrae y elimina primer elemento del array.
-            $controllerName = ucwords($controllerName) . "Controller"; // Para definir nombre del controlador : "ProductController"
-            if (count($arguments)) {
-                $method = array_shift(($arguments)); // show. Se coge la segunda palabra de la url
-            }else {
-                $method = "index";
-            }
+        if (isset($_GET['url'])) {
+            $url = $_GET['url'];
+        } else {
+            $url = 'home';
+        }
 
+        // vamos a usar la url de la siguiente manera:
+        //   controlador/metodo/argumentos
 
-            // Cargar el controlador desde una ruta. "ProductController.php"
-            $file = "../app/controllers/$controllerName"  . ".php";
-            //var_dump($file);
-            //die;
-            if (file_exists($file)) {
-                require_once $file; // Importa el fichero si existe
-            }else {
-                http_response_code(404);
-                die("Error 404.No encontrado"); // Mensaje en la página.
-            }
+        $arguments = explode('/', trim($url, '/'));
+        $controllerName = array_shift($arguments);
+        $controllerName = ucwords($controllerName) . "Controller";
+        if (count($arguments)) {
+            $method =  array_shift($arguments);
+        } else {
+            $method = "index";
+        }
+       
+        $file = "../app/controllers/$controllerName" . ".php";                   
+        if (file_exists($file)) {
+            require_once $file;
+        } else {
+            header("HTTP/1.0 404 Not Found");
+            echo "No encontrado";
+            die();
+        }
 
-            // Ejecuta el método del controlador solicitado por la url
-            $controllerName = "\\App\\Controllers\\$controllerName";
-            $controllerObject = new $controllerName; // Crea un objeto de controllerName
-            if (method_exists($controllerObject,$method)) {
-                $controllerObject->$method($arguments); // Si existe, llama al método con sus parámetros(argumentos). 
-            }else {
-                http_response_code(404);
-                die("Error 404.No encontrado"); // Mensaje en la página.
-            }
-
-
-
-        }// fin construct
-
-
-    }// fin App
-    
+        $controllerName = '\\App\\Controllers\\' . $controllerName;        
+        $controllerObject = new $controllerName;
+        if (method_exists($controllerName, $method)) {
+            $controllerObject->$method($arguments);
+        } else {
+            header("HTTP/1.0 404 Not Found");
+            echo "No encontrado";
+            die();
+        }
+    }
+}
